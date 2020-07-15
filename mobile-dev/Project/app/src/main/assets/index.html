@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=yes">
+    <script src="file:///android_asset/shame.js"></script>
+    <script src="file:///android_asset/jquery.js"></script>
+    <script src="file:///android_asset/jquery-ui.js"></script>
+    <link rel="stylesheet" href="file:///android_asset/style.css">
+</head>
+<body onload="init()">
+    <div id="dataContainerOrientation">
+        No device orientation data
+    </div>
+    <div id="dataContainerMotion">
+        No device motion data
+    </div>
+    <img src="img.jpg">
+    <script>
+        $( document ).click(function() {
+            $( "#shake" ).effect( "shake" );
+        });
+    </script>
+    <br><br>
+    <div id='shake'>
+        <p>&lt;&lt;&lt;Shake your phone to shame&gt;&gt;&gt;</p>
+    </div>
+</body>
+</html>

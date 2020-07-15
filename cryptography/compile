@@ -1,0 +1,7 @@
+#!/bin/bash
+gcc    -o    functions.o   -c    -g          functions.c  
+gcc    -o    rsa           -g rsa.c           functions.o  -lgmp
+gcc    -o    rabin         -g rabin.c         functions.o  -lgmp
+gcc    -o    elgamal       -g elgamal.c       functions.o  -lgmp
+gcc    -o    elgamal_file  -g elgamal_file.c  functions.o  -lgmp
+mkdir  -p 	 keys                                             

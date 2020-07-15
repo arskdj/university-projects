@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.min.js')}}"></script> 
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery.tablesorter.min.js')}}"></script> 
+        <link rel="stylesheet" href="{{ url_for('static',filename='blue/style.css')}}">
+    </head>
+    <body>
+            {% for stepk, stepv in results.items() %}
+                <p> ITERATION {{ loop.index }} </p>
+                <table id="iter{{loop.index}}" class="tablesorter">
+                <thead>
+                <tr>
+                            <th> id </th>
+                    {% for i in results[loop.index][1].keys() %}
+                            {% if loop.index > 4 %}
+                            <th>distance from k{{loop.index - 4}} {{ i }}</th>
+                            {% else %}
+                                <th>{{ i }}</th>
+                            {% endif %}
+                    {% endfor %}
+                <tr>
+                </thead>
+
+                <tbody>
+                {% for rowk,rowv in stepv.items() %}
+                <tr>
+                        <td> {{rowk}} </li>
+                    {% for v in rowv.values() %}
+                        <td> {{v}} </li>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            {% endfor %}
+
+<script>
+$(document).ready(function() 
+    { 
+        $("table").tablesorter({sortList: [[0,0]]}); 
+    } 
+);
+</script>
+    </body>
+
+</html>

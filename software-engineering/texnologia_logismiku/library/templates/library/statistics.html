@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1> Στατιστικά Βιβλίων </h1>
+<table class="table">
+  <thead>
+    <th>ISBN</th>
+    <th>Τίτλος</th>
+    <th>Συγγραφέας</th>
+    <th>Συνολικές Κρατήσεις</th>
+  </thead>
+  <tbody>
+    {% for row in counts %}
+  <tr>
+    <td>{{ row.0.isbn }}  </td>
+    <td>{{ row.0.title }} </td>
+    <td>{{ row.0.author }}</td>
+    <td>{{ row.1 }}</td>
+  </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

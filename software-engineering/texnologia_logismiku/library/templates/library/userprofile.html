@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1> {{ user.username }} </h1>
+<h3> Κρατήσεις </h3>
+<table class="table">
+  <thead>
+    <th>ISBN</th>
+    <th>Τίτλος</th>
+    <th>Συγγραφέας</th>
+    <th>Ημ. Δημιουργίας Κράτησης</th>
+  </thead>
+  <tbody>
+      {% for r in reservations %}
+  <tr>
+    <td>{{ r.book.isbn }}  </td>
+    <td><a href="/library/book/{{r.book.isbn}}">{{ r.book.title }} </a></td>
+    <td>{{ r.book.author }}</td>
+    <td>{{ r.date_created }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3> Τα βιβλία που δανείστηκα</h3>
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Ημ. Δανεισμού:</th>
+    <th>Ημ. Επιστροφής:</th>
+  </thead>
+  <tbody>
+{% for loan in loans %}
+  <tr>
+      <td><a href="/library/book/{{ loan.book_instance.book.isbn }}" >{{ loan.book_instance}} </a> </td>
+    <td> {{ loan.start_date }} </td>
+    <td> {{ loan.return_date }} </td>
+  </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

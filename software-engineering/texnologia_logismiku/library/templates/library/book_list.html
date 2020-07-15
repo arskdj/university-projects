@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1> Κατάλογος Βιβλίων </h1>
+<ul>
+    {% for b in books %}
+    <li> <a href="/library/book/{{b.isbn}}">{{ b.title }} [{{ b.author}}] </a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

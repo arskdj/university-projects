@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1> Λεπτομέρειες Βιβλίου </h1>
+<form method="get" action="{% url 'userprofile' %}">
+    <input type="submit" value="Κράτηση Βιβλίου" />
+    <input type="hidden" name="isbn" value="{{book.isbn}}" "Κράτηση Βιβλίου" />
+</form>
+<table class="table">
+  <thead>
+    <th>ISBN</th>
+    <th>Τίτλος</th>
+    <th>Συγγραφέας</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ book.isbn }}  </td>
+    <td>{{ book.title }} </td>
+    <td>{{ book.author }}</td>
+  </tr>
+  </tbody>
+</table>
+<h1> Βιβλία </h1>
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Κατάσταση:</th>
+    <th>Ημ. Επιστροφής:</th>
+  </thead>
+  <tbody>
+{% for copy in book.bookinstance_set.all %}
+  <tr>
+    <td>{{ copy.id }}  </td>
+    <td>
+        {% if copy.status == 'm' %}
+            Προς Καταλογράφηση
+        {% elif copy.status == 'o' %}
+            Σε Δανεισμό
+        {% elif copy.status == 'a' %}
+            Διαθέσιμο
+        {% else  %}
+            Κρατημένο
+        {% endif %} 
+    </td>
+    <td>{% if copy.status != 'o' %}
+            -
+        {% else %}
+            {{ copy.loan_set.all.0.return_date }}
+        {% endif %}
+    </td>
+  </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

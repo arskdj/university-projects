@@ -1,0 +1,10 @@
+insert into perioxes values (1,'samos',37.7245805,26.6778265,0);
+insert into perioxes values (2,'china',34.41202,86.0325116,0);
+insert into perioxes values (3,'cyprus',35.1636339,32.3039272,0);
+insert into perioxes values (4,'israel',31.3867049,32.8377084,0);
+insert into perioxes values (5,'germany',51.0898808,5.9672522,0);
+insert into perioxes values (6,'uk',46.3224896,-5.3810526,0);
+insert into perioxes values (7,'usa',36.208349,-113.7368394,0);
+insert into perioxes values (8,'philippines',11.5561608,113.5719421,0);
+insert into perioxes values (9,'hawai',20.4456008,-159.749638,0);
+insert into perioxes values (10,'japan',31.6783217,120.2783573,0);
